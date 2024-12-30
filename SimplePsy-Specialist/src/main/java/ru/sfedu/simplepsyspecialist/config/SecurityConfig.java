@@ -55,7 +55,7 @@ public class SecurityConfig {
                         .requestMatchers("/SimplePsy/V1/client/findAll").permitAll() // Разрешить доступ к этому URL
                         .anyRequest().authenticated())
                 .formLogin((form) -> form.loginPage("/SimplePsy/V1/specialist/login").permitAll()
-                        .defaultSuccessUrl("/SimplePsy/V1/session/calendar")
+                        .defaultSuccessUrl("/SimplePsy/V1/session/calendar", true)
                         .permitAll())
                 .logout((logout) -> logout.logoutUrl("/logout").permitAll())
                 .csrf(csrf -> csrf.disable())

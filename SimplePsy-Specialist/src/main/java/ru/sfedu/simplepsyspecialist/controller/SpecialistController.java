@@ -71,7 +71,7 @@ public class SpecialistController {
         System.out.println("Got the specialist's  username: " + specialist.getUsername());
         System.out.println("Got the specialist's  password: " + specialist.getPassword());
         specialistService.authorizeSpecialist(specialist);
-        return "redirect:/SimplePsy/V1/specialist/sessions";
+        return "redirect:/SimplePsy/V1/session/calendar";
     }
     @GetMapping("/changePass")
     public String changePass(Model model)
