@@ -44,6 +44,17 @@ jobs:
           dockerfile: ./SimplePsy-Specialist/Dockerfile
           push: true
           tags: breadlyy/psy:1.0
+
+      - name: Set up SSH
+        run: |
+          mkdir -p ~/.ssh
+          echo "${{ secrets.SSH_PRIVATE_KEY }}" > ~/.ssh/id_rsa
+          chmod 600 ~/.ssh/id_rsa
+          ssh-keyscan -H 93.95.97.176 >> ~/.ssh/known_hosts
+
+      - name: Run script on remote server
+        run: ssh root@93.95.97.176 './docker_script.sh'
+
       - name: Debug logs
         run: cat ./SimplePsy-Specialist/build/reports/build/*.log || true
 
