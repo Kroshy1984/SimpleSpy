@@ -21,10 +21,6 @@ jobs:
       - name: Grant execute permission for Gradlew
         run: chmod +x ./SimplePsy-Specialist/gradlew
 
-      - name: Build with Gradle
-        run: ./gradlew build
-        working-directory: ./SimplePsy-Specialist
-
       - name: Upload build artifacts
         uses: actions/upload-artifact@v3
         with:
